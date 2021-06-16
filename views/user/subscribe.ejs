@@ -1,0 +1,221 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+<%- include('../partials/flash') %>
+<link rel="stylesheet" href="/css/subscribe.css">     
+<title>Subscribe</title>
+<body>
+   <div class="text-center pt-3 head">
+      <h3>Enter the pincode to get the Vaccine Alerts</h3>
+      <p>*You will get alerts on email as soon as vaccines are available</p>
+   </div>
+   
+   <div class="text-center">
+      <select name="" class="age" id="dropdown" class="mt-3" onchange>
+         <option value="default1" selected>Select Age Criteria</option>
+         <option value="age1">45 +</option>
+         <option value="age2">18 +</option>
+     </select>    
+      <select name="" class="dose" id="dropdown" class="mt-3" onchange>
+         <option value="default2" selected>Select Dose Type</option>
+         <option value="d1">Dose 1</option>
+         <option value="d2">Dose 2</option>
+     </select>
+    
+   </div>
+
+   <div class="row">
+      <div class="f1 col-10 offset-1 col-sm-4 offset-sm-4 border border-5 border-danger rounded mb-5 mt-4">
+         <div class="row mt-5 text-center">
+               <div class="mt-2">
+            <h4>Dose 1 Subscriptions</h4>
+                  <h5>Age limit : 45</h5>
+            <div class="mt-5">        
+               <form action="/post/subscribe" method="post">
+                  <input type="text" name="pincode" placeholder="pincode" required>
+                  <button class="btn btn-danger rounded-pill text-center mt-3">Subscribe</button>
+               </form>
+            </div>
+         </div>
+         </div>
+         <div class="row">
+            <div class="text-center">
+            
+               <% if(pins.length) {%>
+                  <p class="pt-2 text-center">You are Subscribed to the following pincodes : </p>
+      
+                  <% for(let p of pins){ %>
+                     <div class="row">
+                        <div class="">
+                           <div class="rounded-pill" role="alert">
+                                             
+                                 <%= p.userpincode[0] %> <a href="/post/unsubscribe/<%= p.userpincode[0] %>"><span style="padding-left:5%;"></span><i class="fas fa-trash-alt" style="color : red">   </i></a>                   
+                          
+                           </div>
+                        </div>
+                     
+                     </div>
+      
+                   
+                     <% } %>
+                        <% } %>
+               <% if(!pins.length) {%>
+                  <p class="head pt-4 text-center">No subscriptions yet for Dose 1!</p>
+                  <% } %>  
+                  <div style="margin-bottom: 10%;">
+
+                  </div>
+            </div>
+         </div>
+      
+      </div>
+      
+   <div class="f2 col-10 offset-1 col-sm-4 offset-sm-4 border border-5 border-danger rounded mb-5 mt-4">          
+   <div class="row mt-5 text-center">
+      <div class="mt-2"> 
+         
+         <h4>Dose 2 Subscriptions</h4> 
+      <h5>Age limit : 45</h5>
+         <div class="mt-5">       
+         <form action="/post/subscribe2" method="post">
+            <input type="text" name="pincode" placeholder="pincode" required>
+            <button class="btn btn-danger rounded-pill text-center mt-3">Subscribe</button>
+         </form>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="text-center">
+      
+         <% if(pins2.length) {%>
+            <p class="pt-2 text-center">You are Subscribed to the following pincodes : </p>
+
+            <% for(let p2 of pins2){ %>
+               <div class="row">
+                  <div class="">
+                     <div class="rounded-pill" role="alert">
+                                       
+                           <%= p2.userpincode[0] %> <a href="/post/unsubscribe2/<%= p2.userpincode[0] %>"><span style="padding-left:5%;"></span><i class="fas fa-trash-alt" style="color : red">   </i></a>                   
+                    
+                     </div>
+                  </div>
+               
+               </div>
+
+             
+               <% } %>
+                  <% } %>
+         <% if(!pins2.length) {%>
+            <p class="head pt-4 text-center">No subscriptions yet for Dose 2!</p>
+            <% } %>  
+            <div style="margin-bottom: 10%;">
+
+            </div>
+      </div>
+   </div>
+      </div>
+   </div>
+<!-- 
+   // 18 above  -->
+   <div class="row">
+      <div class="f3 col-10 offset-1 col-sm-4 offset-sm-4 border border-5 border-danger rounded mb-5 mt-4">
+         <div class="row mt-5 text-center">
+               <div class="mt-2">
+            <h4>Dose 1 Subscriptions</h4><h5>Age limit : 18</h5>
+            <div class="mt-5">        
+               <form action="/post/subscribe18" method="post">
+                  <input type="text" name="pincode" placeholder="pincode" required>
+                  <button class="btn btn-danger rounded-pill text-center mt-3">Subscribe</button>
+               </form>
+            </div>
+         </div>
+         </div>
+         <div class="row">
+            <div class="text-center">
+            
+               <% if(pins18.length) {%>
+                  <p class="pt-2 text-center">You are Subscribed to the following pincodes : </p>
+      
+                  <% for(let p of pins18){ %>
+                     <div class="row">
+                        <div class="">
+                           <div class="rounded-pill" role="alert">
+                                             
+                                 <%= p.userpincode[0] %> <a href="/post/unsubscribe18/<%= p.userpincode[0] %>"><span style="padding-left:5%;"></span><i class="fas fa-trash-alt" style="color : red">   </i></a>                   
+                          
+                           </div>
+                        </div>
+                     
+                     </div>
+      
+                   
+                     <% } %>
+                        <% } %>
+               <% if(!pins18.length) {%>
+                  <p class="head pt-4 text-center">No subscriptions yet for Dose 1!</p>
+                  <% } %>  
+                  <div style="margin-bottom: 10%;">
+
+                  </div>
+            </div>
+         </div>
+      
+      </div>
+      
+   <div class="f4 col-10 offset-1 col-sm-4 offset-sm-4 border border-5 border-danger rounded mb-5 mt-4">          
+   <div class="row mt-5 text-center">
+      <div class="mt-2"> 
+         
+         <h4>Dose 2 Subscriptions</h4> 
+      <h5>Age limit : 18</h5>
+         <div class="mt-5">       
+         <form action="/post/subscribe182" method="post">
+            <input type="text" name="pincode" placeholder="pincode" required>
+            <button class="btn btn-danger rounded-pill text-center mt-3">Subscribe</button>
+         </form>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="text-center">
+      
+         <% if(pins182.length) {%>
+            <p class="pt-2 text-center">You are Subscribed to the following pincodes : </p>
+
+            <% for(let p2 of pins182){ %>
+               <div class="row">
+                  <div class="">
+                     <div class="rounded-pill" role="alert">
+                                       
+                           <%= p2.userpincode[0] %> <a href="/post/unsubscribe182/<%= p2.userpincode[0] %>"><span style="padding-left:5%;"></span><i class="fas fa-trash-alt" style="color : red">   </i></a>                   
+                    
+                     </div>
+                  </div>
+               
+               </div>
+
+             
+               <% } %>
+                  <% } %>
+         <% if(!pins182.length) {%>
+            <p class="head pt-4 text-center">No subscriptions yet for Dose 2!</p>
+            <% } %>  
+            <div style="margin-bottom: 10%;">
+
+            </div>
+      </div>
+   </div>
+      </div>
+   </div>
+
+   
+   
+   <div style="margin-bottom: 18%;">
+
+   </div>
+</body>
+
+
+
+    
+<script src="/js/subscribe.js"></script>
+<%- include('../partials/footer') %>

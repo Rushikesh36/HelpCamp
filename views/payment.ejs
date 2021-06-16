@@ -1,0 +1,188 @@
+<%- include('partials/header') %>
+
+<title>HelpCamp Donate</title>
+<style>
+    
+.container{
+    padding-top: 20px;
+    text-align: center;
+}
+
+.info{
+  line-height: 1.5rem;
+  font-size: 1.25rem;
+  
+  padding: 8rem;
+  text-align: left;
+}
+
+h1{
+  font-size: 2em;
+}
+
+.innerInfo{
+  padding: 2em 2em 2em 6em;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  color: rgb(44, 69, 150);
+  
+}
+
+.innerInfo:hover{
+  color: rgb(44, 69, 150);
+  
+}
+
+.quote{
+ color: rgb(44, 69, 150);
+}
+.pay{
+  padding-top: 2em;
+  padding-bottom: 1.5em;
+  margin: 2em;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  color: green;
+}
+
+.carousel {
+  width:60%;
+  height: 60%;
+  margin : 0 auto;
+}
+img{
+      max-height: 500px;
+      max-width: 800px;
+      margin: auto;
+}
+
+.mobileview{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  color: rgb(44, 69, 150);
+}
+
+</style>
+<%- include('partials/navbar') %>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner justify-content-center">
+      <div class="carousel-item active">
+        <img src="./imgs/1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./imgs/2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./imgs/3.jpg" class="d-block w-100" alt="...">
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- CARDS -->
+  <div class="container shadow-lg p-3 mt-5 mb-5 bg-body rounded">
+    <div class="card">
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p class="quote">We make a living by what we get, but we make a life by what we give.</p>
+          <footer class="blockquote-footer"><cite title="Source Title">Winston Churchill</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="container shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="card">
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p class="quote">Service to others is the rent you pay for your room here on earth.</p>
+          <footer class="blockquote-footer"><cite title="Source Title">Mohammed Ali</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="container shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="card">
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p class="quote">I have found that among its other benefits, giving liberates the soul of the giver.</p>
+          <footer class="blockquote-footer"><cite title="Source Title">Maya Angelou</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="container shadow-lg p-5 mb-5 bg-body rounded" id="about">
+    <div class="row">
+      <div class="col-sm shadow-lg p-2 mb-5 bg-body rounded">
+        <div>
+          <h2 class="pay">
+            DONATE NOW!!!<br><br>
+            CLICK THE BUTTON BELOW TO HELP THE NEEDY!!
+          </h2>
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_H7EINOTTZu8Zhk"
+              async> </script>
+          </form>
+        </div>
+
+      </div>
+      <div class="col-sm info  shadow-lg  mb-5 bg-body rounded innerInfo d-none d-lg-block">
+        <p>
+        <h1> Save lives. Change lives.</h1>
+        <br>
+        We have one audacious goal – to house the 1.2 billion women, children and men without somewhere safe to call
+        home.
+        <br>
+        <br>
+        Such a goal is difficult but with your help, it’s not impossible.
+        <br> <br>
+        Your donation will help create housing markets where the right levels of availability and affordability enable
+        hard-working families to secure their own home.
+        <br> <br>
+        Your generosity isn’t just the kind thing to do, it’s the smart thing to do.
+        <br><br>
+        That’s because your donation won’t just provide a fundamental human right, it will unleash unimaginable human
+        potential to create a more secure and just world for us all.
+        <br> <br>
+        Learn about the impact of your donation.
+        <br> <br>
+        Make a difference right now.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container col-sm p-4 shadow-lg mb-5 bg-body rounded mobileview d-block d-lg-none">
+    <p>
+        We have one audacious goal – to house the 1.2 billion women, children and men without somewhere safe to call
+          home.
+  Such a goal is difficult but with your help, it’s not impossible.
+  Your donation will help create housing markets where the right levels of availability and affordability enable
+  hard-working families to secure their own home.
+  Your generosity isn’t just the kind thing to do, it’s the smart thing to do.
+  That’s because your donation won’t just provide a fundamental human right, it will unleash unimaginable human
+          potential to create a more secure and just world for us all.
+  Learn about the impact of your donation.
+  Make a difference right now.
+    </p>
+  </div>
+
+
+<%- include('partials/footer') %>

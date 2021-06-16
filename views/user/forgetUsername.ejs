@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/register.css">
+    
+
+<%- include('../partials/navbar') %>
+    
+    <%- include('../partials/flash') %>  
+ 
+        <div class="row">
+            <div class="col-10 offset-1 col-sm-3 offset-sm-5 pt-4">
+                <form action="/post/forget/username" method="POST">
+                    <legend class="text-center pt-3">Forgot Username</legend>
+                    <div class="form-group pt-4">
+                        <!-- <label for="email">Email :</label> -->
+                        <input type="email" name="email" autofocus class="form-control" placeholder="Email*">
+                    </div>
+                    <div class="form-group text-center pt-4 pb-3">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+<%- include('../partials/footer') %>  

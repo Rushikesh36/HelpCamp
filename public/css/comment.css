@@ -1,0 +1,26 @@
+.textarea{
+    display: none;
+}
+
+#comm{
+    margin-left: 2%;
+}
+
+.editComment{
+    display: none;
+}
+
+@media (max-width: 576px) { 
+    .textarea{
+        column-span: 50;
+    }
+ }
+
+ textarea{
+     -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
+ }
+

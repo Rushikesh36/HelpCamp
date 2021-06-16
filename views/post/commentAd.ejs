@@ -1,0 +1,144 @@
+<%- include('../partials/header') %>
+    <title>HelpCamp Posts</title>
+    <link rel="stylesheet" href="/css/comment.css">
+    <link rel="stylesheet" href="/css/showPosts.css">
+
+    <%- include('../partials/navbar') %>
+    <%- include('../partials/flash') %>
+        <!-- <h3><%= banner.categories %> </h3>
+        <li><%= banner.requirement %></li>
+        <li><%= banner.location %></li>
+        <p><%= banner.user.username %></p> -->
+        
+       
+        <div class="container mt-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8">
+                    <div class="card p-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class=""><div>
+                                <i class="fas fa-user username"> </i> <span class="username"><i><%= banner.user.username %> </i></span>
+                                <hr>
+                                <div>
+                                <% if(banner.categories == 'hospital'){ %> 
+                                    <b>Hospital Beds</b> 
+                                <% } %> 
+                                <% if(banner.categories == 'blood') {%> 
+                                    <b>Blood / Plasma</b>
+                                <% } %> 
+                                <% if(banner.categories == 'medicines'){ %> 
+                                    <b>Medical Utilities & Medicines</b> 
+                                <% } %>
+                                </div>
+                                
+                            </div>
+                            </div>   
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="font-weight-bold"><b>Requirement : </b><%= banner.requirement %></small>
+                           
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                            <small class="font-weight-bold"><b>Pincode : </b><%= banner.pincode %></small>
+                            
+                            <small class="date tdcolor"><b><i><%= banner.time  %></i></b> </small>
+                            </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span><small class="font-weight-bold location"><b>Location : </b><%= banner.location %></small></span>   
+                            <small class="date tdcolor"><b><i><%= banner.date  %></i></b></small>                        
+                                                      
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <% if(loggedInUser){ %> 
+                                <button class="btn btn-warning" id="add">Help</button>  
+                            <% } %>  
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                        <form class="form" method="post" action="/help/comment/<%= banner._id %>/<%= banner.user._id %> ">
+                            <div class="textarea">              
+                                <textarea id="comment" name="comment" cols="100" rows="2" placeholder="add a comment"></textarea>
+                                <br>
+                                <button class="btn btn-success" id="submit" type="submit">Submit</button>
+                                <button class="btn btn-primary" id="reset" type="reset">Reset</button>
+                                <button class="btn btn-danger" id="cancel" type="button">Cancel</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        
+       
+  
+<% if(!comm.length) { %>
+    <div style="margin-top : 5%"></div>
+      <div class="row container-fluid">
+        <div class="col-10 offset-1 col-sm-4 offset-sm-4">
+            <div class="alert alert-primary d-flex align-items-center justify-content-center" role="alert">
+                <div>
+                  <h4>No Comments Available</h4>                  
+                </div>
+              </div>            
+              
+        </div>        
+      </div>
+<% }else{%>  
+<h1 class="count" style="display:none"><%= comm.length %></h1> 
+<% for(c of comm){ %>     
+        <div class="container mt-5 comment">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8">
+                    <div class="card p-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="user d-flex flex-row align-items-center"><span><small class="font-weight-bold">
+                                <i class="fas fa-user username"></i>
+                                <i class="username"><%= c.user.username %></i>
+                                <hr>
+                                <div><%= c.comment  %></div> 
+                                <div class="d-flex justify-content-between align-items-center">
+                                  <i> <small><b>Time : </b><%= c.time %> </small>  
+                                   <div><b>Date : </b><%= c.date %> </div></i>                                       
+                                </div>
+                                <% if(loggedInUser){ %> 
+                                <% if(user.username == c.user.username || user.username == 'admin') {%> 
+                                <div>
+                                    <div class="d-flex justify-content-around ">
+                                    <button class="editBtn btn" style="color : blue"><i class="fas fa-edit"> </i> Edit </i></button>
+                                    
+                                    <form action="/help/delete/comment/<%= banner.id %>/<%= c._id %>" method="post">
+                                        <a href=""><button class="btn deleteBtn" style="color : red"><i class="fas fa-trash-alt" style="color : red"></i> Delete</button></a>  
+                                    </form>
+                                    </div>
+
+                                    
+                                                                       
+                                    <div class="editComment">                                  
+                                        <form method="post" action="/help/comment/edit/<%= banner._id %>/<%= c._id %>">
+                                                <div>              
+                                                    <textarea id="comment" name="comment" cols="100" rows="2"  ><%= c.comment %></textarea>
+                                                    <br>
+                                                    <button class="btn btn-success submitBtn" id="submit" type="submit">Submit</button>
+                                                    <button class="btn btn-primary" id="reset" type="reset">Reset</button>
+                                                    <button class="btn btn-danger" id="cancelBtn" type="button">Cancel</button>
+                                                </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <% } %> 
+                                <% } %> 
+                            </small> 
+                            </span>    
+                        </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <% } %>
+        
+        <% } %> 
+        
+        <script src="/js/comment.js"></script>
+        <script src="/js/edit.js"></script>
+<%- include('../partials/footer') %>

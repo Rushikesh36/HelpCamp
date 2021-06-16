@@ -1,0 +1,53 @@
+<%- include('../partials/header') %>
+<title>
+    Vaccine Tracker
+</title>
+<link rel="stylesheet" href="/css/home.css">
+<%- include('../partials/navbar') %>
+
+<% if(loggedInUser){ %> 
+    <p class="pin" style="display:none"><%= pin %>  </p>
+    
+    <div class="text-center">
+        <h3 class="mt-5">Get Vaccine Details</h3>
+        <select name="" id="dropdown" class="mt-3" onchange>
+            <option value="default" selected>Select Search Criteria</option>
+            <option value="first">On your registered pincode</option>
+            <option value="second">On any Pincode</option>
+        </select>
+       
+        <br>
+        <div class="row">
+            <div class="col-3 offset-2 col-sm-3 offset-sm-4 offset-md-4 offset-lg-5 text-center">
+                <input type="text" class="search pc text-center mt-3 " style="display: none" placeholder="Pincode" name="pincode" >
+            </div>
+           
+        </div>
+        
+        </div>
+    <div class="row titlebox" style="margin-top: 3%; display : none">
+
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">            
+            <div class="alert alert-success" role="alert">
+                    <div>
+                        <h4 class="text-danger text-center">Vaccine Details </h4>
+                        <strong> <p class="add text-center"></p></strong> 
+                        <p class="add2 text-center"></p>
+                        <p class="add3 text-center"></p>
+                        <p class="noSlot text-center"></p>
+                    
+                    
+                    </div>
+            </div>              
+            
+        </div>
+    </div>   
+    <div class="title"></div>
+    <p class="slotData"></p>
+    <% } %> 
+    <div style="margin-bottom: 18%;">
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/home.js"></script>
+<%- include('../partials/footer') %>

@@ -1,0 +1,101 @@
+<%- include('../partials/header') %>
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/register.css">  
+    <style>
+        form{color : black}
+    </style>
+<%- include('../partials/navbar') %>
+<%- include('../partials/flash')  %> 
+<form class="validated-form" action="/user/edit/<%=user._id%>/profile?_method=PATCH" method="POST" novalidate>
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+            <h3>Welcome</h3>
+            <p>You are 30 seconds away from helping someone in need!</p>
+            <a href="/user/login"><input  type="button" name="" value="Login" /></a><br>
+        </div>
+        <div class="col-md-9 register-right">
+            
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">View / Edit Profile</h3>
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="First Name *" name="firstname" value="<%= user.firstname  %>  " required />
+                                <div class="valid-feedback">
+                                    looks good!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Last Name *" name="lastname" value="<%= user.lastname  %> " required />
+                                <div class="valid-feedback">
+                                    looks good!
+                                </div>
+                            </div>                          
+                            <div class="form-group">
+                                <div class="maxl">
+                                    <label class="radio inline">
+                                        <input type="radio" name="gender" value="male" <%= user.gender == 'male' ? 'checked' : ''%>  required>
+                                        <span> Male </span>
+                                    </label>
+                                    <label class="radio inline">
+                                        <input type="radio" name="gender" value="female" <%= user.gender == 'female' ? 'checked' : ''%>  required>
+                                        <span>Female </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Username *" name="username" value="<%= user.username %> " readonly required/>
+                                <div class="valid-feedback">
+                                    looks good!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control email" placeholder="Your Email *" name="email" value="<%= user.email  %> "  readonly required/>
+                                                             
+                            </div>
+                            <div class="form-group">
+                                <input type="number"  name="phone" class="form-control" placeholder="Your Phone *" value=<%=user.phone%>  required/>
+                                    <div class="valid-feedback">
+                                        looks good!
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="pincode" class="form-control" placeholder="Pincode *" value=<%=user.pincode%> required/>
+                                    <div>
+                                       <p class="text-primary">  *Please enter Pincode to get vaccine availabilty details</p> 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        looks good!
+                                    </div>
+                            </div>
+                            <button class="btn btn-success btnRegister registerBtn" type="submit">Save</button>
+                        </form>
+                        <form action="/user/delete?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-danger btnRegister delete"><i class="fas fa-trash-alt" >  </i> Delete Account</button>
+                        </form>    
+                       
+                        <form action="/user/resetpassword" method="get">
+                            <button type="submit" class="btn btn-success btnRegister delete"><i class="fas fa-key"> </i> Change Password</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const deleted = document.querySelector('.delete');
+    deleted.addEventListener('click',()=>{
+        alert("Press Ok to delete Account or go to back page.");
+    })
+</script>  
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="/js/validation.js"></script>
+<%- include('../partials/footer') %>

@@ -1,0 +1,90 @@
+<%- include('../partials/header') %>
+    <title>HelpCamp Posts</title>
+    <link rel="stylesheet" href="/css/signup.css">
+    <link rel="stylesheet" href="/css/showPosts.css">
+
+    <%- include('../partials/navbar') %>
+    <%- include('../partials/flash') %>
+    
+    <div class="row m-4">
+        <div class="col-4 offset-4">
+            <select name="option" id="search" onchange>
+                <option selected>Select Search Criteria</option>  
+                <option value="pincode">Pincode</option>
+                <option value="city">Location</option>                    
+            </select>                
+        </div>
+    </div>
+
+
+    <div class="pc" style="display: none"> 
+    <form action="/post/filter/pc" method="POST">
+        <div class="row m-4">
+            <div class="col-4 offset-4">
+                <label for="pincode">Search by pincode : </label>
+                <input type="number" id="pincode" name="pc">                
+                <button class="btn btn-info" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div class="city" style="display: none">
+    <form action="/post/filter/city" method="POST">
+        <div class="row m-1">
+            <div class="col-4 offset-4">                
+                <label for="city">Search by Location : </label>
+                <input type="text" id="city" name="city">
+                <button class="btn btn-info" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    
+<% for(p of posts) {%> 
+    <a href="/post/<%=p._id%>">
+    <form action="/post/<%=p._id%> " method="GET">
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="user d-flex flex-row align-items-center"><span>
+                            <i class="fas fa-user"></i> <i></i><span class="username"><%= p.user.username %></i></span>
+                            <hr>
+                            <div>
+                            <% if(p.categories == 'hospital'){ %> 
+                                <b>Hospital Beds</b> 
+                            <% } %> 
+                            <% if(p.categories == 'blood') {%> 
+                                <b>Blood / Plasma</b>
+                            <% } %> 
+                            <% if(p.categories == 'medicines'){ %> 
+                                <b>Medical Utilities & Medicines</b> 
+                            <% } %>
+                            </div> 
+                            
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        <small class="font-weight-bold"><b>Requirement : </b><%= p.requirement %></small>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><small class="font-weight-bold location"><b>Location : </b><%= p.location %></small></span>
+                        <b><i><small class="tdcolor"><%= p.time  %> </small></i></b>
+                        
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><small class="font-weight-bold location"><b>Pincode : </b><%= p.pincode %></small></span>
+                        
+                        <b><i><small class="tdcolor"><%= p.date  %> </small></i></b>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>    
+</a>    
+<% } %>    
+<script src="/js/option.js"></script>
+<%- include('../partials/footer') %>

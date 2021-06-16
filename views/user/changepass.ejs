@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+    <%- include('../partials/navbar') %>
+        <%- include('../partials/flash') %>
+            <div class="row">
+                <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4  pt-4">
+                    <form action="/user/resetpass" method="POST">
+                        <legend>Reset Password</legend>
+                        <div class="form-group">
+                            <label for="password">Old Password</label>
+                            <input type="password" name="oldpassword" value="" id="old" placeholder="Old password"
+                                autofocus="autofocus" class="form-control" />
+                                <div class="form-group">
+                                    <input type="checkbox" onclick="oldPassword()"> Show Password
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm">New Password</label>
+                            <input type="password" name="newpassword" value="" id="myInput" placeholder="New Password"
+                                class="form-control" />
+                                <div class="form-group">
+                                    <input type="checkbox" onclick="myFunction()"> Show Password
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm">Confirm new Password</label>
+                            <input type="password" name="confirmnewpassword" id="cnf" value="" placeholder="Confirm New Password" class="form-control" />
+                            <div class="form-group">
+                                <input type="checkbox" onclick="cnfPassword()"> Show Password
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <button type="submit" class="btn btn-primary">Update Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script src="/js/validation.js"></script>
+ <%- include('../partials/footer') %>

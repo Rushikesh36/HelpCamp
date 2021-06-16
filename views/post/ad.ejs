@@ -1,0 +1,52 @@
+<%- include('../partials/header') %>
+    <title>Posts</title>
+    <link rel="stylesheet" href="/css/register.css">
+
+    <%- include('../partials/navbar') %>
+    <%- include('../partials/flash') %>
+        <form class="validated-form" action="/help" method="POST" novalidate>
+            <div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+                        <h3>Welcome</h3>
+                        <p>Post your requirement</p>
+                    </div>
+                    <div class="col-md-9 register-right">
+
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Provide Help Details</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select id="categories" class="form-select" name="categories" placeholder="Categories *" required>
+                                            <option value="hospital">Hospital Bed</option>
+                                            <option value="medicines">Medical Utilities & Medications</option>
+                                            <option value="blood">Blood/Plasma</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="requirement" id="requirement" placeholder="Post your Advertisement / Help *"class="form-control"  cols="46" rows="3"
+                                            required></textarea>
+                                        </div>
+                                        <div class="form-group">                                            
+                                            <input type="text" class="form-control" placeholder="Location *"  name="location" required />
+                                        </div>
+                                        <div class="form-group">                                            
+                                            <input type="number" class="form-control" placeholder="Pincode *"  name="pincode" required />
+                                        </div>
+                                            <button class="btn btn-success btnRegister">Post</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </form>
+
+<%- include('../partials/footer') %>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="/js/post.js"></script>
+<script src="/js/validation.js"></script>

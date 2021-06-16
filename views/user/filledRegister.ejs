@@ -1,0 +1,161 @@
+<%- include('../partials/header') %>
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/register.css">  
+
+<%- include('../partials/navbar') %>
+<%- include('../partials/flash')  %> 
+<style>
+    form{color : black}
+</style>
+<form class="validated-form" action="/user/register" method="POST" onsubmit="return validateMyForm();" novalidate>
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+            <h3>Welcome</h3>
+            <p>You are 30 seconds away from helping someone in need!</p>
+            <a href="/user/login"><input  type="button" name="" value="Login" /></a><br>
+        </div>
+        <div class="col-md-9 register-right">
+            
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Register</h3>
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <% if(!form){  %> 
+                                <input type="text" class="form-control" placeholder="First Name *" name="firstname" value="" required />
+                                <% }else{ %> 
+                                    <input type="text" class="form-control" placeholder="First Name *" name="firstname" value="<%= form.firstname  %> " required />
+                                <% } %> 
+
+                                <div class="valid-feedback">
+                                    looks good!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <% if(!form){  %> 
+                                <input type="text" class="form-control" placeholder="Last Name *" name="lastname" value="" required />
+                                <% }else{ %>
+                                    <input type="text" class="form-control" placeholder="Last Name *" name="lastname" value="<%= form.lastname  %> " required />
+                                <% } %>
+                                <div class="valid-feedback">
+                                    looks good!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="myInput"class="form-control p1" placeholder="Password *" name="password" value="" required/>
+                                <div class="valid-feedback">
+                                    looks good!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" onclick="myFunction()"> Show Password
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control p2" placeholder="Confirm Password *" name="cfpassword" id="cnf" required/>
+                                <div class="valid-feedback">
+                                    looks good!
+                                </div>
+                                <div class="passwordCheck">
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" onclick="cnfPassword()"> Show Password
+                            </div>
+                            <% if(!form){ %> 
+                            <div class="form-group">
+                                <div class="maxl">
+                                    <label class="radio inline">
+                                        <input type="radio" name="gender" value="male" checked  required>
+                                        <span> Male </span>
+                                    </label>
+                                    <label class="radio inline">
+                                        <input type="radio" name="gender" value="female" required>
+                                        <span>Female </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <% } else{%>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <input type="radio" name="gender" value="male" <%= form.gender == 'male' ? 'checked' : ''%>  required>
+                                            <span> Male </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="gender" value="female" <%= form.gender == 'female' ? 'checked' : ''%>  required>
+                                            <span>Female </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            <% } %>  
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <% if(!form){  %> 
+                                <input type="text" class="form-control username" placeholder="Your Username *" name="username" value="" required/>
+                                <% }else{ %> 
+                                    <input type="text" class="form-control username" placeholder="Your Username *" name="username" value="<%= form.username  %> " required/>
+                                <% } %>   
+                                <div class="space">
+
+                                </div>
+                                <div class="valid-feedback">
+                                    looks good!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                                              
+                                <input type="email" class="form-control email" placeholder="Your Email *" name="email" value="" required/>                              
+                                <button class="btn btn-primary m-2 otpBtn" style="display: none" type="button">Send OTP</button>
+                                <div class="otpText">                      
+                                                                  
+                                </div>
+                                <input type="number" class="form-control cnfOtp" style="display: none" placeholder="Enter OTP" required> 
+                                <div class="showText">                      
+                                                                  
+                                </div>   
+                                                          
+                            </div>
+                            <div class="form-group">
+                                <% if(!form){  %>
+                                <input type="number"  name="phone" class="form-control" placeholder="Your Phone *" value="" required/>
+                                <% }else{ %> 
+                                    <input type="number" name="phone" class="form-control" placeholder="Your Phone *" value=<%= form.phone  %> required/>
+                                    <% } %> 
+                                    <div class="valid-feedback">
+                                        looks good!
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <% if(!form){  %>
+                                <input type="number"  name="pincode" class="form-control" placeholder="Pincode *" value="" required/>
+                                <% }else{ %> 
+                                    <input type="number"  name="pincode" class="form-control" placeholder="Pincode *" value=<%=form.pincode%> required/>
+                                    <% } %> 
+                                    <div>
+                                       <p class="text-primary">  *Please enter Pincode to get vaccine availabilty details</p> 
+                                    </div>
+                                    <div class="valid-feedback">
+                                        looks good!
+                                    </div>
+                            </div>
+                            <button class="btnRegister registerBtn" type="submit">Register</button>
+                            <div class="mob d-xs-block d-md-none ">
+                               <button class="btnRegister"><a href="/user/login"></a>Login</button>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/otp.js"></script>
+<script src="/js/validation.js"></script>
+<%- include('../partials/footer') %>

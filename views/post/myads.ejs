@@ -1,0 +1,71 @@
+<%- include('../partials/header') %>
+    <title>HelpCamp Posts</title>
+    <link rel="stylesheet" href="/css/comment.css">
+    <link rel="stylesheet" href="/css/showPosts.css">
+
+    <%- include('../partials/navbar') %>
+    <%- include('../partials/flash') %>
+             
+  
+
+    <% for(p of myposts) {%> 
+        <a href="/help/<%=p._id%>" style="color: black">
+        <div class="container mt-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8">
+                    <div class="card p-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="user d-flex flex-row align-items-center"><span>
+                                <div>
+                                    <div>
+                                        <% if(admin.loggedIn){ %>
+                                            <b><%= p.user.username %> </b>
+                                        <% } %>  
+                                        
+                                    </div>
+                                <% if(p.categories == 'hospital'){ %> 
+                                    <b>Hospital Beds</b> 
+                                <% } %> 
+                                <% if(p.categories == 'blood') {%> 
+                                    <b>Blood / Plasma</b>
+                                <% } %> 
+                                <% if(p.categories == 'medicines'){ %> 
+                                    <b>Medical Utilities & Medicines</b> 
+                                <% } %>
+                                </div> 
+                                
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-text">
+                            <small class="font-weight-bold"><b>Requirement : </b><%= p.requirement %></small>
+                        <div class="d-flex justify-content-between align-items-center">
+                            
+                            <small><b>Location : </b><%= p.location %></small></span>
+                            <small class="tdcolor"><b><i><%= p.time %></i></b> </small>
+                            
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                                                        
+                            <small class="font-weight-bold"><b>Pincode :</b> <%= p.pincode %></small>
+                            
+                            <small class="tdcolor"><b><i><%= p.date %></i></b></small>
+                            
+                        </div>
+                    </div>
+                        <div class="d-flex  align-items-center">
+                            <% if(loggedInUser){ %> 
+                                <a href="/help/edit/<%= p._id %>"><i class="fas fa-edit"> </i>Edit</a> 
+                                <form action="/help/delete/<%= p._id %>" method="post">
+                                    <a href=""><button class="btn" style="color : red"><i class="fas fa-trash-alt" style="color : red"></i> Delete</button></a> 
+                                </form>                                
+                            <% } %>                            
+                        </div>                                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <% } %>    
+<script src="/js/comment.js"></script>
+<%- include('../partials/footer') %>

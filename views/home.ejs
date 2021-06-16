@@ -1,0 +1,92 @@
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/css/home.css">
+<title>HelpCamp</title>
+
+<%- include('partials/navbar') %>
+
+<div class="container-fluid my-5">
+    <div class="row text-center">
+      <div class="col-6 col-sm-3 text-warning">
+        <h5>Confirmed</h5>
+        <p id="confirmed"></p>
+      </div>
+      <div class="col-6 col-sm-3 text-info">
+        <h5>Active</h5>
+        <p id="active"></p>
+      </div>
+      <div class="col-6 col-sm-3 text-success">
+        <h5>Recovered</h5>
+        <p id="recovered"></p>
+      </div>
+      <div class="col-6 col-sm-3 text-danger">
+        <h5>Deceased</h5>
+        <p id="deaths"></p>
+      </div>
+    </div>
+  </div>
+<div class="d-none d-sm-none d-md-block">
+  <canvas id="myChart"></canvas>
+</div>
+<div class="alert pt-3 row text-center">
+    <h3>Get Help from people sorted by following categories</h3>
+</div>   
+    
+
+<div class="cont d-flex justify-content-around flex-column flex-lg-row align-items-center ">
+    <div class="card">
+        <div class="face face1">
+            <div class="content">
+                <div class="icon">
+                    <i class="fas fa-procedures category"  aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <h3>
+                    <a href="/post/show/hospital" target="_blank">Hospital Beds</a>
+                </h3>
+                <p>Hospitals with vacant beds</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="face face1">
+            <div class="content">
+                <div class="icon">
+                    <i class="fa fa-first-aid category" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <h3>
+                    <a href="/post/show/medicines" target="_blank">Medical Utilities & Medications</a>
+                </h3>
+                <p>Medicines,Ventilators,oxygen cylinder,etc</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="face face1">
+            <div class="content">
+                <div class="icon" >                    
+                    <i class="fa fa-syringe category"  aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <h3>
+                    <a href="/post/show/blood" target="_blank">Blood / Plasma</a>
+                </h3>
+                <p>Donate or Get Blood/Plasma</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<%- include('partials/footer') %>

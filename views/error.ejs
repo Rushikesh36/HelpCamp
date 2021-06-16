@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+    <title>HelpCamp Error</title>
+    
+<%- include('partials/navbar') %>
+<div class="row">  
+  <div class="col-12 col-sm-6 offset-sm-3 mt-5">
+    <div class="alert alert-danger mt-5" role="alert">
+      <h4 class="alert-heading"><%= err.message  %> </h4>
+      <p>Status Code : <%= err.status  %>  </p>
+      <hr>      
+    </div>
+  </div>
+
+</div>
+
+<%- include('partials/footer') %>

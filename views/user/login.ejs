@@ -1,0 +1,61 @@
+<%- include('../partials/header') %>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/register.css">
+    
+
+<%- include('../partials/navbar') %>
+    
+    <%- include('../partials/flash') %>    
+    
+        <div class="container register">
+            <div class="row">
+                <div class="col-md-3 register-left">
+                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+                    <h3>Welcome</h3>
+                    <p>Log into your account</p>
+                    <a href="/user/forget/username"><button class="rounded-pill ">Forgot Username</button></a>
+                    <a href="/user/forgot"><button class="rounded-pill mt-3">Forgot Password</button></a>
+                </div>
+                <div class="col-md-9 register-right">
+                    <form class="validated-form" action="/user/login" method="POST" novalidate>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Login</h3>
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Username *" name="username" value="" required />
+                                        <div class="valid-feedback">
+                                            looks good!
+                                        </div>
+                                    </div>                                    
+                                    <div class="form-group input-group">
+                                        <input type="password" id="myInput" class="form-control" placeholder="Password *" value="" name="password" required />
+                                                                               
+                                        <div class="valid-feedback">
+                                            looks good!
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="color:black;">
+                                        <input type="checkbox" onclick="myFunction()"> Show Password
+                                    </div>
+                                    <button class="btnRegister">Login</button>
+                                    <a href="/user/register"><button type="button" class="btnRegister">Create New Account</button></a>
+                                    
+                                    <div class="mob d-xs-block d-md-none">
+                                    <a href="/user/forget/username"><button type="button" class="btnRegister">Forgot Username</button></a>
+                                    <a href="/user/forgot"><button type="button" class="btnRegister">Forgot Password</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </form>
+
+<script src="/js/validation.js"></script>
+<%- include('../partials/footer') %>
